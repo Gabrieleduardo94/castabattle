@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="themes/common.css" />
+		<script src="js/geral.js"></script>
+	</h:head>
+
+	<body>
+		<H1 style="text-align: center;">Bem Vindo ao Batalha Naval do
+			CastaBattle!!</H1>
+			
+		<h:form id="gameForm" >
+			<div style="float: left; width: 50%;">
+				<p:fieldset legend="Meus Navios">
+					<p:dataTable id="tableC" value="#{gameBean.tableComputador}"
+						var="row" rowIndexVar="rowIndex">
+						<p:column>
+							<h:outputText value="#{row[0]}" rendered="${row[0] != null}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[1]}"
+								rendered="${row[1]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('A',rowIndex)}"
+								rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[2]}"
+								rendered="${row[2]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('B',rowIndex)}"
+								rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[3]}"
+								rendered="${row[3]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('C',rowIndex)}"
+								rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[4]}"
+								rendered="${row[4]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('D',rowIndex)}"
+								rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[5]}"
+								rendered="${row[5]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('E',rowIndex)}"
+								rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[6]}"
+								rendered="${row[6]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('F',rowIndex)}"
+								rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[7]}"
+								rendered="${row[7]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('G',rowIndex)}"
+								rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[8]}"
+								rendered="${row[8]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('H',rowIndex)}"
+								rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[9]}"
+								rendered="${row[9]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('I',rowIndex)}"
+								rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'HIDDEN'}" />
+						</p:column>
+						<p:column>
+							<h:outputText value="#{row[10]}"
+								rendered="${row[10]['class'].simpleName eq 'String'}" />
+							<p:commandButton value="?" update="gameForm"
+								actionListener="#{personaliseBoard.fire('J',rowIndex)}"
+								rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'HIDDEN'}" />
+						</p:column>
+					</p:dataTable>
+				</p:fieldset>
+			</div>
+			<br />
+			<div style="text-align: center;">
+				<p:commandButton value="Novo Jogo" action="game.xhtml"
+					actionListener="#{gameBean.reset()}" 
+					rendered="#{personaliseBoard.fimSelecao}" />
+				<br />
+				<br />
+				<h:outputText value="Primeiro escolha o local do Boat, ocupando apenas um quadrado." />
+				<br />
+				<h:outputText value="Segundo escolha o local do Cruiser, ocupando apenas um quadrado." />
+				<br />
+				<h:outputText value="Terceiro escolha o local do Destroyer, ocupando apenas um quadrado." />
+				
+			</div>
+		</h:form>
+		
+	</body>
+</f:view>
+</html>

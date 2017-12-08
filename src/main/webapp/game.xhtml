@@ -1,0 +1,181 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html">
+		<h:head>			
+			<link type="text/css" rel="stylesheet" href="themes/common.css" />
+			<script src="js/geral.js"></script>	
+		</h:head>
+	
+		<body>	
+			<h:form id="gameForm">
+				<div style="float:left; width:50%;">
+					<p:fieldset legend="Computador">
+						<p:dataTable id="tableC" value="#{gameBean.tableComputador}" var="row" rowIndexVar="rowIndex">
+							<p:column>
+								<h:outputText value="#{row[0]}" rendered="${row[0] != null}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[1]}" rendered="${row[1]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('A',rowIndex)}" rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'HIDDEN'}" disabled="#{gameBean.endGame}"/>
+								<h:outputText value="F"         rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[2]}" rendered="${row[2]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('B',rowIndex)}" rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[3]}" rendered="${row[3]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('C',rowIndex)}" rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[4]}" rendered="${row[4]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('D',rowIndex)}" rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[5]}" rendered="${row[5]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('E',rowIndex)}" rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[6]}" rendered="${row[6]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('F',rowIndex)}" rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[7]}" rendered="${row[7]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('G',rowIndex)}" rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[8]}" rendered="${row[8]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('H',rowIndex)}" rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[9]}" rendered="${row[9]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('I',rowIndex)}" rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'WATER'}" />
+							</p:column>	
+							<p:column>
+								<h:outputText value="#{row[10]}" rendered="${row[10]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" update="gameForm" actionListener="#{gameBean.fire('J',rowIndex)}" rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'HIDDEN'}" disabled="#{gameBean.endGame}" />
+								<h:outputText value="F"         rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'FIRE'}" />
+								<h:outputText value="W"         rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'WATER'}" />
+							</p:column>						
+						</p:dataTable>
+					</p:fieldset>
+				</div>
+				<div>
+					<p:fieldset legend="Humano">
+						<p:dataTable id="tableH" value="#{gameBean.tableHumano}" var="row" rowIndexVar="rowIndex">
+							<p:column>
+								<h:outputText value="#{row[0]}" rendered="${row[0] != null}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[1]}" rendered="${row[1]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[1]['class'].simpleName eq 'CellType' and row[1] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[2]}" rendered="${row[2]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[2]['class'].simpleName eq 'CellType' and row[2] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[3]}" rendered="${row[3]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[3]['class'].simpleName eq 'CellType' and row[3] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[4]}" rendered="${row[4]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[4]['class'].simpleName eq 'CellType' and row[4] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[5]}" rendered="${row[5]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[5]['class'].simpleName eq 'CellType' and row[5] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[6]}" rendered="${row[6]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[6]['class'].simpleName eq 'CellType' and row[6] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[7]}" rendered="${row[7]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[7]['class'].simpleName eq 'CellType' and row[7] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[8]}" rendered="${row[8]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[8]['class'].simpleName eq 'CellType' and row[8] == 'WATER'}" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{row[9]}" rendered="${row[9]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[9]['class'].simpleName eq 'CellType' and row[9] == 'WATER'}" />
+							</p:column>	
+							<p:column>
+								<h:outputText value="#{row[10]}" rendered="${row[10]['class'].simpleName eq 'String'}" />
+								<p:commandButton value="?" rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'HIDDEN'}" disabled="true" />
+								<h:outputText value="F"    rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'FIRE'}" />
+								<h:outputText value="W"    rendered="${row[10]['class'].simpleName eq 'CellType' and row[10] == 'WATER'}" />
+							</p:column>						
+						</p:dataTable>
+					</p:fieldset>
+				</div>
+				<br/>				
+				<div style="text-align: center;">
+					<h:outputText value="Parabéns, você venceu!" rendered="#{gameBean.endGameH}" />
+					<h:outputText value="Infelizmente, você perdeu!" rendered="#{gameBean.endGameC}" />
+					<br/>
+					<p:commandButton value="Pagina Inicial" actionListener="#{gameBean.reset()}" action="menu.xhtml" rendered="#{gameBean.endGame}" update="gameForm" />
+					<br/>
+					<div style="display: none;">
+						<p:media value="http://soundimage.org/wp-content/uploads/2016/04/Explosion1.mp3" player="quicktime" rendered="#{gameBean.isSoundFire()}" />
+					</div>
+				</div>
+				<p:growl id="growl" showDetail="true" sticky="true" />
+			</h:form>
+			<h:form  id="soundback">
+				<div style="text-align: right; display: none;">
+<!-- 				http://soundimage.org/wp-content/uploads/2016/05/Edge-of-Ocean.mp3 -->
+					<p:media value="Into-Battle_v001.mp3" width="200" height="20" player="quicktime" rendered="#{gameBean.isSoundBack()}"  />
+				</div>
+				<br/>
+				<div style="text-align: center;">
+					<p:commandButton  update="soundback" value="Ativar som" actionListener="#{gameBean.setSoundBack('true')}"  />
+					<p:commandButton update="soundback" value="Desativar som" actionListener="#{gameBean.setSoundBack('false')}"  />					
+				</div>	
+			</h:form>
+	</body>
+	</f:view>
+</html>
+
+
